@@ -5,6 +5,8 @@ const hbs = require('hbs');
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
+const port = process.env.PORT;
+
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewDir = path.join(__dirname,'../templates/views');
 const partialsDir = path.join(__dirname,'../templates/partials');
@@ -68,6 +70,6 @@ app.get('*',(req,res)=>{
     })
 })
 
-app.listen('3000',()=>{
-    console.log("server started!!");
+app.listen(port,()=>{
+    console.log(`server started on port ${port}!!`);
 })
