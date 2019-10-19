@@ -20,7 +20,8 @@ let forecast = (latitude,longitude,callback) => {
             callback(undefined,{
                 latitude,
                 longitude,
-                summary:`${responseBody.daily.data[0].summary}. It is currently ${responseBody.currently.temperature} degrees out.There is a ${responseBody.currently.precipProbability}% chance of rain`
+                summary:`${responseBody.daily.data[0].summary}. It is currently ${responseBody.currently.temperature} degrees out.There is a ${responseBody.currently.precipProbability}% chance of rain`,
+                responseBody : responseBody
             })
         }
     })

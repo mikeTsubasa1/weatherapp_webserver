@@ -9,6 +9,7 @@ const weatherForm = document.querySelector('form');
 const location1 = document.querySelector(`input[name='location']`);
 const message1 = document.querySelector('#message-1');
 const message2 = document.querySelector('#message-2');
+const message3 = document.querySelector('#message-3');
 
 
 weatherForm.addEventListener('submit',(e)=>{
@@ -16,6 +17,7 @@ weatherForm.addEventListener('submit',(e)=>{
     const locationValue = location1.value;
     console.log(locationValue); 
     message1.textContent = 'Loading...';
+    message2.textContent = '';
     message2.textContent = '';
     fetch(`/weather?address=${locationValue}`).then((response)=>{
         response.json().then((data)=>{
@@ -28,6 +30,7 @@ weatherForm.addEventListener('submit',(e)=>{
             else{
                 message1.textContent = 'Weather Result';
                 message2.textContent = data.summary;
+                message3.textContent = `timezone is ${data.responseBody.timezone}`;
             }
         })
     })
